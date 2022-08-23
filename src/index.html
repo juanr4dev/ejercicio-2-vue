@@ -1,29 +1,41 @@
-<div id="app">
-  <h1>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Ejercicio DOM - Estructura Base</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+</head>
+<body class="">
+<!-- partial:index.partial.html -->
+<div id="app" class="dark:bg-slate-800 h-screen flex flex-col items-center pt-5 gap-10">
+  <h1 class="text-5xl font-bold dark:text-white" >
     Mis Cursos de Platzi💚
   </h1>
-    <p>
-      <input type="text" placeholder="Titulo del curso"/>
+  <section class="flex flex-col gap-4 dark:text-white">
+      <input type="text" class="dark:bg-black p-2 w-96" v-model="title" placeholder="Titulo del curso"/>
+      <input type="number" class="dark:bg-black p-2 w-24" v-model="time" placeholder="Horas"/>
+      <button @click="addCourse" class="bg-green-400 rounded-xl">Guardar Curso</button>
     </p>
-    <p>
-      <input type="number" placeholder="Horas"/>
-    </p>
-    <p>
-      <button>Guardar Curso</button>
-    </p>
-  </fieldset>
+  </section>
   <div>
-    <h3>Lista de Cursos</h3>
-    <p class="red">Aun no has realizado cursos</p>
-    <div>
-      <ol>
-        <!-- Lista de cursos -->
+    <h1 class="text-3xl dark:text-white">Lista de Cursos</h1>
+    <div class="pt-4">
+      <p class="text-red-500" v-if="!courses.length">Aun no has realizado cursos</p>
+      <ol v-for="course in courses" class="dark:text-white">
+        <li>{{ course.title }} ({{ course.time }})</course></title></li>
       </ol>
-      <hr/>
-      <p>
+      <p class="dark:text-slate-400">
         Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
         <b>#NuncaParesDeAprender 💚</b>
       </p>
     </div>
   </div>
 </div>
+<!-- partial -->
+  <script src='https://unpkg.com/vue@2.3.4'></script><script  src="./script.js"></script>
+
+</body>
+</html>
